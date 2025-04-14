@@ -1,0 +1,39 @@
+service: mi-nest-backend
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1  
+  environment:
+    DB_HOST: ${env:DB_HOST}
+    DB_PORT:  ${env:DB_PORT}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_NAME: ${env:DB_NAME}
+    TWILIO_SID: ${env:TWILIO_SID}
+    TWILIO_TOKEN: ${env:TWILIO_TOKEN}
+    TWILIO_PHONE: ${env:TWILIO_PHONE}
+custom:
+  serverless-offline:
+  noPrependStageInUrl: true  # 🔥 Evita que agregue /local o /dev
+
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    timeout: 30
+    events:
+     - httpApi:
+          method: any
+          path: /{proxy+}
+         
+
+plugins:
+  - serverless-jetpack
+  - serverless-offline
+
+  
+
+
+   
+   
