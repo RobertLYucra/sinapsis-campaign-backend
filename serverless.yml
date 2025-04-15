@@ -1,8 +1,8 @@
-service: mi-nest-backend
+service: sinapsis-campaign-backend
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs22.x
   region: us-east-1  
   environment:
     DB_HOST: ${env:DB_HOST}
@@ -16,6 +16,16 @@ provider:
 custom:
   serverless-offline:
   noPrependStageInUrl: true  # 🔥 Evita que agregue /local o /dev
+
+package:
+  exclude:
+    - node_modules/**/test/**
+    - node_modules/**/*.map
+    - node_modules/**/*.md
+    - node_modules/**/docs/**
+    - .git/**
+    - .vscode/**
+    - coverage/**
 
 
 functions:
