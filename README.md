@@ -54,7 +54,7 @@ DB_NAME=your_db_name
 🔒 **Importante:** Nunca subas tu archivo `.env` al repositorio. Añádelo a tu `.gitignore`.
 
 📌 **Nota:** Este proyecto utiliza **Twilio** para el envío de SMS. Actualmente, **solo el número +51910552498 está autorizado para recibir mensajes**. Otros números no recibirán mensajes y su estado será marcado como error.
-Está implementado, pero puedes descomentar en el archivo campaign.service.ts line 148.
+Está implementado, pero puedes descomentar en el archivo `campaign.service.ts` line 148.
 
 ---
 
