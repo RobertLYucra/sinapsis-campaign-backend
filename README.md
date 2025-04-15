@@ -30,7 +30,7 @@ cd tu-repo
 2. **Instalar dependencias**
 
 ```bash
-npm install --legacy-peer-deps
+npm install 
 ```
 
 3. **Configurar variables de entorno**
@@ -38,6 +38,11 @@ npm install --legacy-peer-deps
 Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
+# Twilio Config
+TWILIO_SID= twilio_sid
+TWILIO_TOKEN= twilio_token
+TWILIO_PHONE= phone_number
+
 # Base de datos MySQL
 DB_HOST=your_db_host
 DB_PORT=3306
@@ -49,6 +54,7 @@ DB_NAME=your_db_name
 🔒 **Importante:** Nunca subas tu archivo `.env` al repositorio. Añádelo a tu `.gitignore`.
 
 📌 **Nota:** Este proyecto utiliza **Twilio** para el envío de SMS. Actualmente, **solo el número +51910552498 está autorizado para recibir mensajes**. Otros números no recibirán mensajes y su estado será marcado como error.
+Está implementado, pero puedes descomentar en el archivo campaign.service.ts line 148.
 
 ---
 
@@ -64,6 +70,14 @@ npm run build
 
 ```bash
 serverless offline
+```
+
+## 🚀 Despliegue en Producción
+
+Asegúrate de tener configuradas tus credenciales de AWS. Luego, ejecuta:
+
+```bash
+serverless deploy
 ```
 
 ---
@@ -124,17 +138,11 @@ src/
 
 ---
 
-- Accede a la documentación de los endpoints: [`http://localhost:3000/api/swagger`](http://localhost:3000/api/swagger)
+- Accede a la documentación de los endpoints: [`http://{HOST}/api/swagger`](http://{HOST}/api/swagger)
 
 ---
 
-## 🚀 Despliegue en Producción
 
-Asegúrate de tener configuradas tus credenciales de AWS. Luego, ejecuta:
-
-```bash
-serverless deploy
-```
 
 ---
 
