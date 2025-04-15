@@ -53,8 +53,18 @@ DB_NAME=your_db_name
 
 🔒 **Importante:** Nunca subas tu archivo `.env` al repositorio. Añádelo a tu `.gitignore`.
 
-📌 **Nota:** Este proyecto utiliza **Twilio** para el envío de SMS. Actualmente, **solo el número +51910552498 está autorizado para recibir mensajes**. Otros números no recibirán mensajes y su estado será marcado como error.
-Está implementado, pero puedes descomentar en el archivo `campaign.service.ts` line 148.
+📌 **Nota:** Consideración sobre Twilio:
+El proyecto incluye integración con Twilio. Sin embargo, debido a las limitaciones de mi cuenta gratuita, actualmente solo se puede enviar mensajes al número +51 927 676 456.
+
+En caso desee habilitar el envío real mediante Twilio, puede dirigirse al archivo:
+
+```bash
+src/service/campaign.service.ts
+```
+En la línea 147 encontrará el uso de Twilio comentado. Para activarlo:
+Comente la línea 144.
+Descomente la línea 147.
+
 
 ---
 
