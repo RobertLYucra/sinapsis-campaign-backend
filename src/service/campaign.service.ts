@@ -157,17 +157,25 @@ export class CampaignService implements ICampaignService {
 
     private async simulateMessageDelivery(campaignId: number, messageCount: number): Promise<void> {
         try {
-            const delayPerMessage = 300 + Math.random() * 200; // entre 300 y 700 ms
-            await this.delay(messageCount * delayPerMessage);
-
+            const batchSize = 100;
             const messages = await this.messageRepository.findMessagesByCampaignAndStatus(campaignId, MessageStatus.PENDING);
-
-            for (const message of messages) {
-                const isSent = Math.random() < 0.85;
-                message.shipping_status = isSent ? MessageStatus.SENT : MessageStatus.ERROR;
-                await this.messageRepository.updateMessage(message);
+    
+            for (let i = 0; i < messages.length; i += batchSize) {
+                const batch = messages.slice(i, i + batchSize);
+    
+                // Delay *antes* del procesamiento
+                const batchDelay = 500 + Math.random() * 500;
+                await this.delay(batchDelay);
+    
+                for (const message of batch) {
+                    const isSent = Math.random() < 0.85;
+                    message.shipping_status = isSent ? MessageStatus.SENT : MessageStatus.ERROR;
+                }
+    
+                // Actualiza todo el batch al final (puedes paralelizar si quieres)
+                await Promise.all(batch.map(msg => this.messageRepository.updateMessage(msg)));
             }
-
+    
             await this.updateCampaignStatusIfComplete(campaignId);
         } catch (error) {
             console.error('Error in message delivery simulation:', error);

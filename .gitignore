@@ -3,6 +3,11 @@
 /node_modules
 /build
 
+#Serverless
+.serverless/meta.json
+.serverless/
+
+
 # Logs
 logs
 *.log
