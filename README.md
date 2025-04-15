@@ -92,6 +92,12 @@ serverless deploy
 
 ---
 
+- Accede a la documentación de los endpoints: [`http://{HOST}/api/swagger`](http://{HOST}/api/swagger)
+
+---
+
+---
+
 ## 📁 Estructura del Proyecto
 
 
@@ -146,8 +152,3 @@ src/
 
 ```
 
----
-
-- Accede a la documentación de los endpoints: [`http://{HOST}/api/swagger`](http://{HOST}/api/swagger)
-
----
