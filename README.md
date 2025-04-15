@@ -1,98 +1,159 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 Backend con NestJS + Serverless Framework
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Proyecto backend construido con [NestJS](https://nestjs.com/) y desplegable mediante [Serverless Framework](https://www.serverless.com/). Ideal para arquitecturas serverless en AWS Lambda.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## ✅ Requisitos Previos
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-## Project setup
+- ⚙️ [Node.js](https://nodejs.org/) (recomendado: LTS)
+- 📦 [npm](https://www.npmjs.com/)
+- 🌩️ Serverless Framework CLI
 
 ```bash
-$ npm install
+npm install -g serverless
 ```
 
-## Compile and run the project
+---
+
+## 📥 Instalación del Proyecto
+
+1. **Clonar el repositorio**
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo
 ```
 
-## Run tests
+2. **Instalar dependencias**
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install --legacy-peer-deps
 ```
 
-## Deployment
+3. **Configurar variables de entorno**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Crea un archivo `.env` en la raíz del proyecto:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```env
+# Base de datos MySQL
+DB_HOST=your_db_host
+DB_PORT=3306
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=your_db_name
+```
+
+🔒 **Importante:** Nunca subas tu archivo `.env` al repositorio. Añádelo a tu `.gitignore`.
+
+📌 **Nota:** Este proyecto utiliza **Twilio** para el envío de SMS. Actualmente, **solo el número +51910552498 está autorizado para recibir mensajes**. Otros números no recibirán mensajes y su estado será marcado como error.
+
+---
+
+## 🛠️ Comandos Útiles
+
+### 🔧 Compilar el proyecto
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+npm run build
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 💻 Ejecutar en modo local (offline)
 
-## Resources
+```bash
+serverless offline
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 📁 Estructura del Proyecto
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+src/
+├── api/
+│   ├── controller/
+│   │   ├── campaign.controller.ts
+│   │   ├── message.controller.ts
+│   │   └── users.controller.ts
+│   └── api.module.ts
+│
+├── domain/
+│   ├── dto/
+│   │   ├── request/
+│   │   └── response/
+│   └── model/
+│       ├── campaign.model.ts
+│       ├── customer.model.ts
+│       ├── message.model.ts
+│       └── user.model.ts
+│
+├── infrastructure/
+│   ├── configuration/
+│   ├── enums/
+│   │   ├── campaign-status.enum.ts
+│   │   └── message-mapping.enum.ts
+│   └── utils/
+│
+├── repository/
+│   ├── abstract/
+│   │   ├── iCampaign.repository.ts
+│   │   ├── iMessage.repository.ts
+│   │   └── iUser.repository.ts
+│   ├── campaign.repository.ts
+│   ├── message.repository.ts
+│   └── user.repository.ts
+│
+├── service/
+│   ├── abstract/
+│   │   ├── iCampaign.service.ts
+│   │   ├── iMessage.service.ts
+│   │   └── iUser.service.ts
+│   ├── mapping/
+│   │   ├── campaign.service.ts
+│   │   ├── message.service.ts
+│   │   └── user.service.ts
+│
+├── app.controller.spec.ts
+├── app.controller.ts
+└── app.module.ts
 
-## Stay in touch
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+- Accede a la documentación de los endpoints: [`http://localhost:3000/api/swagger`](http://localhost:3000/api/swagger)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+
+## 🚀 Despliegue en Producción
+
+Asegúrate de tener configuradas tus credenciales de AWS. Luego, ejecuta:
+
+```bash
+serverless deploy
+```
+
+---
+
+## 📚 Recursos Útiles
+
+- [NestJS - Documentación Oficial](https://docs.nestjs.com/)
+- [Serverless Framework - Documentación](https://www.serverless.com/framework/docs)
+- [Twilio](https://www.twilio.com/docs)
+- [Dotenv - Uso de variables de entorno](https://www.npmjs.com/package/dotenv)
+
+---
+
+## 🤝 Contribuciones
+
+Si quieres contribuir, ¡eres bienvenido! Abre un `Pull Request` o crea un `Issue` con sugerencias o mejoras.
+
+---
+
+## 🧾 Licencia
+
+Este proyecto está licenciado bajo [MIT License](LICENSE).
+
