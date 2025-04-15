@@ -68,7 +68,7 @@ Descomente la línea 147.
 
 ---
 
-## 🛠️ Comandos Útiles
+## 🛠️ Comandos Útiles para Despliegue
 
 ### 🔧 Compilar el proyecto
 
@@ -151,27 +151,3 @@ src/
 - Accede a la documentación de los endpoints: [`http://{HOST}/api/swagger`](http://{HOST}/api/swagger)
 
 ---
-
-
-
----
-
-## 📚 Recursos Útiles
-
-- [NestJS - Documentación Oficial](https://docs.nestjs.com/)
-- [Serverless Framework - Documentación](https://www.serverless.com/framework/docs)
-- [Twilio](https://www.twilio.com/docs)
-- [Dotenv - Uso de variables de entorno](https://www.npmjs.com/package/dotenv)
-
----
-
-## 🤝 Contribuciones
-
-Si quieres contribuir, ¡eres bienvenido! Abre un `Pull Request` o crea un `Issue` con sugerencias o mejoras.
-
----
-
-## 🧾 Licencia
-
-Este proyecto está licenciado bajo [MIT License](LICENSE).
-
