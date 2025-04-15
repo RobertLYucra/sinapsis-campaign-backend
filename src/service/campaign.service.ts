@@ -141,10 +141,12 @@ export class CampaignService implements ICampaignService {
 
             const create = await this.campaignRepository.updateCampaignCreateMessages(campaign, mensajes);
             if (create) {
+                
+                //Comentar uno de ellos:
                 this.simulateMessageDelivery(Idcampaign, mensajes.length);
 
                 //Envio por twilio
-                //await await .sthisendMessagesWithTwilio(campaign.id);
+                //await this.sendMessagesWithTwilio(campaign.id);
             }
 
             return create;
