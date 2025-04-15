@@ -23,8 +23,8 @@ npm install -g serverless
 1. **Clonar el repositorio**
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/RobertLYucra/sinapsis-campaign-backend.git
+cd sinapsis-campaign-backend
 ```
 
 2. **Instalar dependencias**

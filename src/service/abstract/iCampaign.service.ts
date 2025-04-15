@@ -9,4 +9,5 @@ export interface ICampaignService {
     getAllCampaignFilter(filterDTO: FilterCampaignDTO): Promise<CampaignResponse[]>;
     deleteCampaign(idCampaign: number): Promise<boolean>;
     createCampaign(campaignData: CreateCampaignDTO): Promise<boolean>;
+    updateCampaignCreateMessages(Idcampaign: number): Promise<boolean> ;
 }

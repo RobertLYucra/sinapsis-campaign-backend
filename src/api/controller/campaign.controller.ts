@@ -142,4 +142,27 @@ export class CampaignController {
             data: messagesByCampaign,
         };
     }
+
+    
+    @Get("/notificar/:idCampaign")
+    @ApiResponse({
+        status: 200,
+        description: 'Notificar campaña',
+        type: FormatResponse,
+    })
+    @ApiParam({
+        name: 'idCampaign',
+        type: Number,
+        description: 'ID de la campaña',
+    })
+    @ApiOperation({ summary: 'Enviar mensaje de la campaña a los números' })
+    async sendMeesagesNotificacions(@Param('idCampaign') idCampaign: number) {
+        const messagesByCampaign = await this.campaignService.updateCampaignCreateMessages(idCampaign);
+        return {
+            status: messagesByCampaign,
+            code: messagesByCampaign ? 200 : 500,
+            message: messagesByCampaign ? 'Campaña notificada' : "Error al notificar campaña",
+            data: messagesByCampaign,
+        };
+    }
 }

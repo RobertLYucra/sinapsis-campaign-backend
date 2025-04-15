@@ -1,5 +1,4 @@
 
-import { Inject, Injectable } from '@nestjs/common';
 import { CreateCampaignDTO } from 'src/domain/dto/request/create-campaign.dto';
 import { FilterCampaignDTO } from 'src/domain/dto/request/filter-campaign.dto';
 import { CampaignResponse } from 'src/domain/dto/response/campaign-response.dto';
@@ -14,6 +13,7 @@ import { ICampaignRepository } from 'src/repository/abstract/iCampaign.repositor
 import { IUserRepository } from 'src/repository/abstract/iUser.repository';
 import { IMessageRepository } from 'src/repository/abstract/iMessage.repository';
 import { TwilioService } from 'src/infraestructure/configuration/twilio.service';
+import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CampaignService implements ICampaignService {
@@ -157,7 +157,7 @@ export class CampaignService implements ICampaignService {
 
     private async simulateMessageDelivery(campaignId: number, messageCount: number): Promise<void> {
         try {
-            const delayPerMessage = 300 + Math.random() * 400; // entre 300 y 700 ms
+            const delayPerMessage = 300 + Math.random() * 200; // entre 300 y 700 ms
             await this.delay(messageCount * delayPerMessage);
 
             const messages = await this.messageRepository.findMessagesByCampaignAndStatus(campaignId, MessageStatus.PENDING);

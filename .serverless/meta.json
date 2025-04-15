@@ -1,0 +1,90 @@
+{
+  "D:\\Desarrollo Software\\RetoTecnico - Sinapsis\\sinapsis-campaign-backend\\serverless.yml": {
+    "versionFramework": "4.12.0",
+    "servicePath": "D:\\Desarrollo Software\\RetoTecnico - Sinapsis\\sinapsis-campaign-backend\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "mi-nest-backend",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "us-east-1",
+        "environment": {
+          "DB_HOST": "${env:DB_HOST}",
+          "DB_PORT": "${env:DB_PORT}",
+          "DB_USER": "${env:DB_USER}",
+          "DB_PASSWORD": "<REDACTED>",
+          "DB_NAME": "${env:DB_NAME}",
+          "TWILIO_SID": "${env:TWILIO_SID}",
+          "TWILIO_TOKEN": "<REDACTED>",
+          "TWILIO_PHONE": "${env:TWILIO_PHONE}"
+        }
+      },
+      "custom": {
+        "serverless-offline": null,
+        "noPrependStageInUrl": true
+      },
+      "functions": {
+        "api": {
+          "handler": "dist/lambda.handler",
+          "timeout": 30,
+          "events": [
+            {
+              "httpApi": {
+                "method": "any",
+                "path": "/{proxy+}"
+              }
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-jetpack",
+        "serverless-offline"
+      ]
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "region": "us-east-1",
+      "environment": {
+        "DB_HOST": "${env:DB_HOST}",
+        "DB_PORT": "${env:DB_PORT}",
+        "DB_USER": "${env:DB_USER}",
+        "DB_PASSWORD": "<REDACTED>",
+        "DB_NAME": "${env:DB_NAME}",
+        "TWILIO_SID": "${env:TWILIO_SID}",
+        "TWILIO_TOKEN": "<REDACTED>",
+        "TWILIO_PHONE": "${env:TWILIO_PHONE}"
+      }
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Cannot resolve '${env:DB_HOST}' variable at 'provider.environment.DB_HOST'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${env:DB_HOST}' variable at 'provider.environment.DB_HOST'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (file:///C:/Users/RobertLYucra/.serverless/releases/4.12.0/package/dist/sf-core.js:560:31882)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async #handlePlaceholderNode (file:///C:/Users/RobertLYucra/.serverless/releases/4.12.0/package/dist/sf-core.js:560:30089)\n    at async file:///C:/Users/RobertLYucra/.serverless/releases/4.12.0/package/dist/sf-core.js:560:27961\n    at async processNodeAndHandleCompletion (file:///C:/Users/RobertLYucra/.serverless/releases/4.12.0/package/dist/sf-core.js:560:16742)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "serviceRawFile": "service: mi-nest-backend\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1  \r\n  environment:\r\n    DB_HOST: ${env:DB_HOST}\r\n    DB_PORT:  ${env:DB_PORT}\r\n    DB_USER: ${env:DB_USER}\r\n    DB_PASSWORD: ${env:DB_PASSWORD}\r\n    DB_NAME: ${env:DB_NAME}\r\n    TWILIO_SID: ${env:TWILIO_SID}\r\n    TWILIO_TOKEN: ${env:TWILIO_TOKEN}\r\n    TWILIO_PHONE: ${env:TWILIO_PHONE}\r\ncustom:\r\n  serverless-offline:\r\n  noPrependStageInUrl: true  # 🔥 Evita que agregue /local o /dev\r\n\r\n\r\nfunctions:\r\n  api:\r\n    handler: dist/lambda.handler\r\n    timeout: 30\r\n    events:\r\n     - httpApi:\r\n          method: any\r\n          path: /{proxy+}\r\n         \r\n\r\nplugins:\r\n  - serverless-jetpack\r\n  - serverless-offline\r\n\r\n  \r\n\r\n\r\n   \r\n   \r\n",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "orgId": "4c96476d-0408-4572-8442-f01a7c770831",
+    "orgName": "robertlyucra",
+    "userId": "Dqs2kRVv8hBvypYtfp",
+    "userName": "robertlyucra",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
